@@ -1,0 +1,37 @@
+# Cursor Settings MCP 프로젝트
+
+## 프로젝트 개요
+이 프로젝트는 Cursor IDE의 설정을 관리하기 위한 MCP(Message Communication Protocol) 서버를 구현한 것입니다.
+
+## 주요 기능
+1. Cursor 설정 관리
+   - 테마 설정 (theme)
+   - 폰트 크기 설정 (font_size)
+   - 탭 크기 설정 (tab_size)
+   - 자동 저장 설정 (auto_save)
+
+## API 엔드포인트
+- GET /cursor/settings: 모든 설정 조회
+- POST /cursor/settings: 설정 업데이트
+- GET /cursor/settings/{key}: 특정 설정 값 조회
+
+## 기본 설정 값
+- theme: "default"
+- font_size: 14
+- tab_size: 4
+- auto_save: true
+
+## 사용 예시
+1. 모든 설정 조회:
+   curl http://localhost:8000/cursor/settings
+
+2. 설정 업데이트:
+   curl -X POST http://localhost:8000/cursor/settings \
+     -H "Content-Type: application/json" \
+     -d '{"theme": "dark", "font_size": 16, "tab_size": 2, "auto_save": true}'
+
+3. 특정 설정 조회:
+   curl http://localhost:8000/cursor/settings/theme
+
+## 실행 방법
+python cursor_settings_mcp.py 
